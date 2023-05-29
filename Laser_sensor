@@ -1,0 +1,12 @@
+const int LASER_PIN = 2;   // Digital pin connected to the laser module
+
+void setup() {
+  pinMode(LASER_PIN, OUTPUT); // Set LASER_PIN as output
+}
+
+void loop() {
+  digitalWrite(LASER_PIN, HIGH); // Turn on the laser
+  delay(1000);                    // Keep the laser on for 1 second
+  digitalWrite(LASER_PIN, LOW);  // Turn off the laser
+  delay(1000);                    // Wait for 1 second
+}
