@@ -1,0 +1,25 @@
+#include <DHT.h>
+
+#define DHTPIN 2           // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT22      // Change this to DHT11 if you're using a DHT11 sensor
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Humidity Sensor Test");
+  dht.begin();
+}
+
+void loop() {
+  delay(2000);
+  float humidity = dht.readHumidity();
+
+  if (isnan(humidity)) {
+    Serial.println("Failed to read humidity from the sensor!");
+  } else {
+    Serial.print("Humidity: ");
+    Serial.print(humidity);
+    Serial.println("%");
+  }
+}
