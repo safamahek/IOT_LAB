@@ -1,0 +1,17 @@
+const int TILT_SWITCH_PIN = 2;   // Digital pin connected to the tilt switch
+
+void setup() {
+  pinMode(TILT_SWITCH_PIN, INPUT_PULLUP); // Set TILT_SWITCH_PIN as input with internal pull-up resistor
+  Serial.begin(9600);                     // Initialize serial communication
+}
+
+void loop() {
+  int tiltSwitchValue = digitalRead(TILT_SWITCH_PIN);
+
+  if (tiltSwitchValue == LOW) {
+    Serial.println("Tilt detected!");
+    // Perform necessary actions when tilt is detected
+  }
+
+  delay(100); // Add a small delay for switch debounce
+}
