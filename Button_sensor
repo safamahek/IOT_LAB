@@ -1,0 +1,17 @@
+const int BUTTON_PIN = 2;    // Digital pin connected to the button sensor
+
+void setup() {
+  pinMode(BUTTON_PIN, INPUT_PULLUP); // Set BUTTON_PIN as input with internal pull-up resistor
+  Serial.begin(9600);                // Initialize serial communication
+}
+
+void loop() {
+  int buttonValue = digitalRead(BUTTON_PIN);
+
+  if (buttonValue == LOW) {
+    Serial.println("Button pressed!");
+    // Perform necessary actions when the button is pressed
+  }
+
+  delay(100); // Add a small delay for button debounce
+}
